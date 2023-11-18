@@ -20,7 +20,9 @@ const divideNumber = (num1, num2) => {
     return num1 / num2
 }
 
-addNumber(1,2)
-subtractNumber(2,1)
-multuplytNumber(3,4)
-divideNumber(4,2)
+
+// A calculator operation will consist of a number, an operator, and another number. For example, 3 + 5. Create three variables for each of the parts of a calculator operation. Create a variable for the first number, the operator, and the second number. You’ll use these variables to update your display later.
+
+let num1 = 0;
+let num2 = 0;
+let operator;
