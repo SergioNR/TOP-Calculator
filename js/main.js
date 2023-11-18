@@ -26,3 +26,33 @@ const divideNumber = (num1, num2) => {
 let num1 = 0;
 let num2 = 0;
 let operator;
+
+
+
+const operate = (num1, num2, operator) => {
+    let result = 0;
+    if (typeof num1 !== `number` || typeof num2 !== `number`) {
+        console.log(`need numbers please bruv`)
+    }
+
+    switch (operator) {
+        case `+`:
+            result = addNumber(num1,num2)
+            break;
+        case `-`:
+            result = subtractNumber(num1,num2)
+            break;
+        case `*`:
+            result = multuplytNumber(num1,num2)
+            break;
+        case `/`:
+            result = divideNumber(num1,num2)
+            break;
+    
+        default:
+            break;
+    }
+    return result
+}
+
+operate(1,2,`+`)
