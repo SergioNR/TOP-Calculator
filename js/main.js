@@ -4,6 +4,8 @@
 // multiply
 // divide
 
+
+// Mathematical functions 
 const addNumber = (num1, num2) => {
     return num1 + num2
 }
@@ -23,12 +25,12 @@ const divideNumber = (num1, num2) => {
 
 // A calculator operation will consist of a number, an operator, and another number. For example, 3 + 5. Create three variables for each of the parts of a calculator operation. Create a variable for the first number, the operator, and the second number. You’ll use these variables to update your display later.
 
+
+
+// Operation functions
 let num1 = 0;
 let num2 = 0;
 let operator;
-
-
-
 
 const operate = (num1, num2, operator) => {
     let result = 0;
@@ -60,18 +62,25 @@ const operate = (num1, num2, operator) => {
 
 // Create the functions that populate the display when you click the number buttons. You should be storing the ‘display value’ in a variable somewhere for use in the next step.
 
-const resultContainer = document.querySelector(`.resultContainer`)
-
+// Populate display
+const resultDisplayContainer = document.querySelector(`.resultDisplayContainer`)
 const resultDisplay = document.createElement(`p`);
+resultDisplay.classList.add(`resultDisplay`)
 
-resultContainer.append(resultDisplay)
 
-resultDisplay.textContent = `5.124334`
+const populateDisplay = (operationResult) => {
+    resultDisplayContainer.append(resultDisplay)
+    resultDisplay.textContent = `${operationResult}`
+}
 
+// Clear display 
 const clearDisplay = () => {
-    resultDisplay.textContent = ``
+    populateDisplay(`0`)
 }
 
 const clearDisplayButton = document.querySelector(`.clearDisplayButton`)
 
 clearDisplayButton.addEventListener(`click`, () => clearDisplay())
+
+// Set default value for display
+populateDisplay(`0`)
