@@ -29,6 +29,7 @@ let operator;
 
 
 
+
 const operate = (num1, num2, operator) => {
     let result = 0;
     if (typeof num1 !== `number` || typeof num2 !== `number`) {
@@ -55,4 +56,22 @@ const operate = (num1, num2, operator) => {
     return result
 }
 
-operate(1,2,`+`)
+
+
+// Create the functions that populate the display when you click the number buttons. You should be storing the ‘display value’ in a variable somewhere for use in the next step.
+
+const resultContainer = document.querySelector(`.resultContainer`)
+
+const resultDisplay = document.createElement(`p`);
+
+resultContainer.append(resultDisplay)
+
+resultDisplay.textContent = `5.124334`
+
+const clearDisplay = () => {
+    resultDisplay.textContent = ``
+}
+
+const clearDisplayButton = document.querySelector(`.clearDisplayButton`)
+
+clearDisplayButton.addEventListener(`click`, () => clearDisplay())
