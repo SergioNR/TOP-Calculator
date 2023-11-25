@@ -13,12 +13,13 @@ resultDisplay.classList.add(`resultDisplay`);
 
 
 const populateDisplay = (operationResult) => {
+    console.log(`result is ${operationResult}`) //* uncomment for debug - will print operation result
     resultDisplayContainer.append(resultDisplay)
     resultDisplay.textContent = `${operationResult}`
 };
 
 
-// Mathematical functions 
+// Mathematical logic
 const addNumber = (num1, num2) => {
     return num1 + num2
 }
@@ -41,20 +42,26 @@ const divideNumber = (num1, num2) => {
 
 
 // Operation functions
-let num1 = 0; // TODO Allow user to chose num1 and num2 and operator - operator should be fairly easy, but ill have to think about the numbers
-let num2 = 0;
-let operator;
+let num1 = null;
+let num2 = null;
+let operator = null;
 
-
+// Operation logic
 const equalButton = document.querySelector(`.equalButton`)
 
 equalButton.addEventListener(`click`, () => operate(num1,num2,operator))
 
 const operate = (num1, num2, operator) => {
     let result = 0;
-    if (typeof num1 !== `number` || typeof num2 !== `number`) {
-        console.log(`need numbers please bruv`)
+    if (operator === null) {
+        alert(`Please input an operator`)
+        console.log(`please input an operator`) //* Checks if there is an operator selected
     }
+
+    if (typeof num1 !== `number` || typeof num2 !== `number`) {
+        alert(`please select two numbers`)
+        console.log(`need numbers please bruv`)
+    } //* Checks if the operation values have been selected
 
     switch (operator) {
         case `+`:
@@ -79,18 +86,62 @@ const operate = (num1, num2, operator) => {
     }
 }
 
+// Reset operation values
 
+const resetOperationValues = () => {
+    num1 = null;
+    num2 = null;
+}
 
 // Create the functions that populate the display when you click the number buttons. You should be storing the ‘display value’ in a variable somewhere for use in the next step.
 
 // Clear display 
 const clearDisplay = () => {
-    populateDisplay(`0`)
+    populateDisplay(`0`) //* Hardcoded as 0 so calculator will always show 0 on "clear button" press or initial load
 }
 
 const clearDisplayButton = document.querySelector(`.clearDisplayButton`)
 
 clearDisplayButton.addEventListener(`click`, () => clearDisplay())
 
-// Set default value for display on calculator load
-populateDisplay(`0`)
+
+clearDisplay() //* Set default value for display on page load
+
+// Obtain operation values
+const getOperationValues = (e) => {
+    const numberInputButton = document.querySelectorAll(`.numberInputButton`);
+    numberInputButton.forEach((numberInputButton) => {
+        numberInputButton.addEventListener(`click`, (e) => {
+            if (num1 === null) {
+                num1 = parseInt(e.target.innerHTML);
+                // console.log(` this value is for num1 => ${typeof num1}, num1`); // * uncomment for debug - will print variable value and type
+            }
+            else if (num1 !== null && num2 === null) {
+                num2 = parseInt(e.target.innerHTML);
+                // console.log(` this value is for num2 => ${typeof num2}, num2`); //* uncomment for debug - will print variable value and type
+            }
+            else {
+                resetOperationValues();
+            }
+        })
+    })
+};
+
+getOperationValues() //* Need to run the function once so the eventListener is applied to all the numberInputButtons
+
+
+// Obtain operation operator
+const getOperationOperator = (e) => {
+    const operatorInputButton = document.querySelectorAll(`.operatorInputButton`)
+
+    operatorInputButton.forEach((operatorInputButton) => {
+        operatorInputButton.addEventListener(`click`, (e) => {
+            operator = e.target.innerHTML
+            // console.log(` this value is for operator => ${typeof operator}, operator`); //* uncomment for debug - will print variable value and type
+        })
+    })
+}
+
+getOperationOperator() //* Need to run the function once so the eventListener is applied to all the numberInputButtons
+
+// i think that i need to create a for each loop so every number input has a event listener which will return the innerHTML value and set it to num1 and num2 -- 

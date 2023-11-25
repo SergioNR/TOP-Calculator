@@ -1,15 +1,27 @@
-.resultDisplayContainer {
-    border: 2px black solid;
+body {
     display: flex;
-    justify-content: end;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(7, 201, 201)
 }
 
-.resultDisplay {
-    font-weight: bold;
-    padding: 0px 8px 0px 0px;
+.calculatorContainer {
+    border: black solid 2px;
+    display: flex;
+    
 }
 
-.numberInput:hover , .operatorInput:hover  {
-    background-color: black;
-    color: white;
+.numberInputButton {
+    padding: 8px;    
 }
+
+.operatorInputButton {
+    padding: 8px;
+}
+
+
+
+
+
+
