@@ -7,17 +7,58 @@ body {
 }
 
 .calculatorContainer {
-    border: black solid 2px;
     display: flex;
-    
+    flex-direction: column;
+    width: 426px;
+    height: 533px;
+    background-color: black;
+}
+
+.resultDisplayContainer {
+    height: 93px;
+    width: 396px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 5.5em;
+    padding: 8px;
+    border: 2px black;
+    background-color: gray;
+    font-weight: bold;
+    margin: 8px;
+}
+
+.inputSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.rowOne, .rowTwo, .rowThree, .rowFour, .rowFive {
+    width: 100%;
+} 
+
+
+.numberInputButton, .operatorInputButton {
+    /* padding: 8px; */
+    /* font-size: 24px;  */
+    height: 78px;
+    width: 98px;   
+    font-size: 2em;
+    /* margin: 0px 5px; */
 }
 
 .numberInputButton {
-    padding: 8px;    
+    background-color: green;
 }
 
 .operatorInputButton {
-    padding: 8px;
+    background-color: orange;
+}
+
+.zeroInputButton {
+    width: 200px;
 }
 
 

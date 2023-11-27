@@ -22,29 +22,44 @@ Add a “clear” button. -->
 
     <div class="inputSection">
 
-        <div class="numbersInputContainer">
-            <button class="numberInputButton">1</button>
-            <button class="numberInputButton">2</button>
-            <button class="numberInputButton">3</button>
-            <button class="numberInputButton">4</button>
-            <button class="numberInputButton">5</button>
-            <button class="numberInputButton">6</button>
+        <div class="rowOne">
+            <button class="clearDisplayButton operatorInputButton">AC</button>
+            <button class="operatorInputButton">+/-</button> <!-- TODO ADD FUNCIONALITY -->
+            <button class="operatorInputButton">%</button> <!-- TODO ADD FUNCIONALITY -->
+            <button class="operatorInputButton">/</button>
+
+        </div>
+        
+        <div class="rowThree">
             <button class="numberInputButton">7</button>
             <button class="numberInputButton">8</button>
             <button class="numberInputButton">9</button>
-            <button class="numberInputButton">0</button>        
+            <button class="operatorInputButton">*</button>
         </div>
 
-        <div class="operatorSection">
-            <button class="operatorInputButton">+</button>
+        <div class="rowFour">
+            <button class="numberInputButton">4</button>
+            <button class="numberInputButton">5</button>
+            <button class="numberInputButton">6</button>
             <button class="operatorInputButton">-</button>
-            <button class="operatorInputButton">*</button>
-            <button class="operatorInputButton">/</button>
-            <button class="equalButton operatorInput">=</button>
-            <button class="clearDisplayButton operatorInput">Clear</button>
         </div>
+
+        <div class="rowFive">
+            <button class="numberInputButton">1</button>
+            <button class="numberInputButton">2</button>
+            <button class="numberInputButton">3</button>
+            <button class="operatorInputButton">+</button>
+        </div>
+
+        <div class="numbersInputContainer">
+            <button class="numberInputButton zeroInputButton">0</button>
+            <button class="numberInputButton">.</button>
+            <button class="equalButton operatorInputButton">=</button>
+        </div>
+
 
     </div>
+
 </div>
 </body>
 </html>
